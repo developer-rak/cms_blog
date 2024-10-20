@@ -9,16 +9,23 @@ export default function Home() {
    return (
       <div className="container px-10 mx-auto mb-8 bg-gray-300">
          <Head>
-            <title>Create Next App</title>
+            <title>CMS Blog</title>
             <link rel="icon" href="/favicon.ico" />
          </Head>
          <div className="grid grid-cols-1 gap-12 lg:grid-cols-12">
-            {posts.map((post, index) => (
-               <div>
-                  {post.title}
-                  {post.excerpt}
+            <div className="col-span-1 lg:col-span-8">
+               {posts.map((post, index) => (
+                  <div>
+                     {post.title}
+                     {post.excerpt}
+                  </div>      
+               ))}
+            </div>
+            <div className="col-span-1 lg:col-span-4">
+               <div className="relative lg:sticky top-8">
+               
                </div>
-            ))}
+            </div>
          </div>
       </div>
    )
