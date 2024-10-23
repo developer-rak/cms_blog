@@ -1,10 +1,18 @@
-import React from 'react';
+import React, {useState, useEffect} from 'react';
 import Link from 'next/link';
 
-const categories = [{name: 'React', slug: 'react'}, {name: 'Web Development', slug: 'web-dev'}];
+import { getCategories } from '../services';
+
 
 const Header = () => {
-  return (
+   const [categories, setCategories] = useState([]);
+
+   useEffect(() => {
+     getCategories()
+       .then((newCategories) => setCategories(newCategories))
+   }, []);
+
+   return (
     <div className='container px-10 mx-auto mb-8'>
       <div className="inline-block w-full py-8 border-b border-blue-400">
          <div className="block md:float-left">
@@ -25,7 +33,7 @@ const Header = () => {
          </div>
       </div>
     </div>
-  )
+   )
 }
 
 export default Header;
